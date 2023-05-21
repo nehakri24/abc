@@ -1,17 +1,26 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner sc = new Scanner(System.in);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        Model data = new Model();
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i + 5);
-        }
+        System.out.println("Enter Email Id:");
+        data.setEmail(sc.nextLine());
+
+        System.out.println("Enter Alternate Email Id:");
+        data.setAltEmail(sc.nextLine());
+
+        System.out.println("Enter Capacity:");
+        data.setCapacity(sc.nextInt());
+
+        // Generate Password
+        data.setPassword(GeneratePassword.generateRandomPassword());
+
+        // Access the account details
+        System.out.println("Email: " + data.getEmail());
+        System.out.println("Password: " + data.getPassword());
+        System.out.println("Mailbox Capacity: " + data.getCapacity());
+        System.out.println("Alternate Email: " + data.getAltEmail());
     }
 }
